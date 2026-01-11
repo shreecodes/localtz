@@ -1,0 +1,23 @@
+name: LocalTZ
+options:
+  bundleIdPrefix: com.localtz
+  deploymentTarget:
+    macOS: "13.0"
+  xcodeVersion: "15.0"
+
+targets:
+  LocalTZ:
+    type: application
+    platform: macOS
+    sources:
+      - LocalTZ
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.localtz.LocalTZ
+        PRODUCT_NAME: LocalTZ
+        MARKETING_VERSION: "1.0.0"
+        CURRENT_PROJECT_VERSION: "1"
+        INFOPLIST_FILE: LocalTZ/Info.plist
+        GENERATE_INFOPLIST_FILE: NO
+        SWIFT_VERSION: "5.9"
+        MACOSX_DEPLOYMENT_TARGET: "13.0"
