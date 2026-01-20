@@ -5,6 +5,7 @@ struct TimeParser {
         case epochSeconds(Int64)
         case epochMilliseconds(Int64)
         case mongoObjectId(String)
+        case isoDate(Date)
         case invalid
     }
 
@@ -22,6 +23,13 @@ struct TimeParser {
             return .mongoObjectId(trimmed)
         }
 
+        // Check for ISO 8601 date string
+        if trimmed.contains("-") || trimmed.contains("T") {
+            if let date = parseISO8601(trimmed) {
+                return .isoDate(date)
+            }
+        }
+
         // Check for numeric epoch
         if let value = Int64(trimmed) {
             if trimmed.count == 13 {
@@ -32,6 +40,26 @@ struct TimeParser {
         }
 
         return .invalid
+    }
+
+    private static func parseISO8601(_ input: String) -> Date? {
+        let formatters: [(ISO8601DateFormatter.Options, TimeZone?)] = [
+            ([.withInternetDateTime, .withFractionalSeconds], nil),
+            ([.withInternetDateTime], nil),
+            ([.withFullDate, .withTime, .withColonSeparatorInTime], .current),
+            ([.withFullDate, .withTime, .withColonSeparatorInTime, .withFractionalSeconds], .current),
+            ([.withFullDate], .current),
+        ]
+
+        for (options, tz) in formatters {
+            let formatter = ISO8601DateFormatter()
+            formatter.formatOptions = options
+            if let tz = tz { formatter.timeZone = tz }
+            if let date = formatter.date(from: input) {
+                return date
+            }
+        }
+        return nil
     }
 
     /// Extract Unix timestamp (in seconds) from the detected input type
@@ -45,6 +73,8 @@ struct TimeParser {
             // First 8 hex chars = 4 bytes = timestamp in seconds
             let hex = String(id.prefix(8))
             return Int64(hex, radix: 16)
+        case .isoDate(let date):
+            return Int64(date.timeIntervalSince1970)
         case .invalid:
             return nil
         }
