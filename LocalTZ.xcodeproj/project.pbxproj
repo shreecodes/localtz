@@ -10,10 +10,12 @@
 		246FF6F26BAD900BDA27B4E4 /* TimeParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFE6E5B4F577E82287601530 /* TimeParser.swift */; };
 		6542E1A721FBF790EF7F2848 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0550B1C828007A37F8E2A16 /* ContentView.swift */; };
 		858BD160413BD13634001243 /* LocalTZApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7E5D551E1FABF68DB91FAEC /* LocalTZApp.swift */; };
+		B2C3D4E5F67890123456789A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A1B2C3D4E5F6789012345678 /* Assets.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		090C884C6ED0808698DEC526 /* LocalTZ.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LocalTZ.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		A1B2C3D4E5F6789012345678 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DFE6E5B4F577E82287601530 /* TimeParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeParser.swift; sourceTree = "<group>"; };
 		E2954E926D3CAFCA232B8EA0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		F0550B1C828007A37F8E2A16 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -24,6 +26,7 @@
 		3E5E1E6D41F67275060B3E18 /* LocalTZ */ = {
 			isa = PBXGroup;
 			children = (
+				A1B2C3D4E5F6789012345678 /* Assets.xcassets */,
 				F0550B1C828007A37F8E2A16 /* ContentView.swift */,
 				E2954E926D3CAFCA232B8EA0 /* Info.plist */,
 				F7E5D551E1FABF68DB91FAEC /* LocalTZApp.swift */,
@@ -56,6 +59,7 @@
 			buildConfigurationList = 635DD1ED453BBA82370CBE72 /* Build configuration list for PBXNativeTarget "LocalTZ" */;
 			buildPhases = (
 				70BAB2C73BB11114A45BA67F /* Sources */,
+				C3D4E5F678901234567890AB /* Resources */,
 			);
 			buildRules = (
 			);
@@ -95,6 +99,17 @@
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		C3D4E5F678901234567890AB /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B2C3D4E5F67890123456789A /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		70BAB2C73BB11114A45BA67F /* Sources */ = {
