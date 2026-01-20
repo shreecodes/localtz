@@ -60,7 +60,7 @@ struct ContentView: View {
             Divider()
 
             // Input field
-            TextField("Paste epoch or ObjectID...", text: $input)
+            TextField("Paste a timestamp or ObjectId", text: $input)
                 .textFieldStyle(.roundedBorder)
                 .font(.system(.body, design: .monospaced))
 
